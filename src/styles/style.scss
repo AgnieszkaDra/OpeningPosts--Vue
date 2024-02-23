@@ -31,4 +31,7 @@ body {
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 1fr;
         }
+    &__item {
+        padding: 10px;
+    }
 }

@@ -1,16 +1,33 @@
 <template>
   <section class='section posts'>
-    <div>First</div>
-    <div>Second</div>
-    <div>Third</div>
-    <div>Fourth</div>
-    <div>Fifth</div>
-    <div>Sixth</div>
-    <div>Seven</div>
-    <div>Eight</div>
-    <div>Nine</div>
-    <div>Ten</div>
+    <div 
+      v-for="(post, index) in postsData" 
+      :key="index"
+      class="posts__item"
+    >
+      {{ post.title }}
+      {{ post.body}}
+      {{ post.author }}
+    </div>
   </section>
 </template>
+
+<script>
+import createNewPosts from '../providers/createNewPosts'
+import postDataArray from '../../data/post';
+
+export default {
+  name: 'PostsSection', 
+  mounted() {
+    console.log('mounted')
+    createNewPosts(postDataArray);
+  },
+  data() {
+    return {
+      postsData: postDataArray
+    };
+  }
+};
+</script>
 
 
