@@ -12,22 +12,13 @@
   </section>
 </template>
 
-<script>
-import createNewPosts from '../providers/createNewPosts'
-import postDataArray from '../../data/post';
+<script setup>
 
-export default {
-  name: 'PostsSection', 
-  mounted() {
-    console.log('mounted')
-    createNewPosts(postDataArray);
-  },
-  data() {
-    return {
-      postsData: postDataArray
-    };
-  }
-};
+import createNewPosts from '../providers/createNewPosts' 
+import postDataArray from '../../data/post'
+
+const postsData = postDataArray
+createNewPosts(postDataArray)
+
 </script>
-
 
