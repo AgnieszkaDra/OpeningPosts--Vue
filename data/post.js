@@ -1,4 +1,36 @@
 import { v4 as uuidv4 } from 'uuid';
+import wild1 from '../src/assets/Forest/forest-bag.1jpg'
+import wild2 from '../src/assets/Forest/forest-bag.2jpg'
+import wild3 from '../src/assets/Forest/forest-bag.3jpg'
+import wolf1 from '../src/assets/Wolf/wolf.1.jpg'
+import wolf2 from '../src/assets/Wolf/wolf.2.jpg'
+import wolf3 from '../src/assets/Wolf/wolf.3.jpg'
+import wolf4 from '../src/assets/Wolf/wolf.4.jpg'
+import wolf5 from '../src/assets/Wolf/wolf.5.jpg'
+import violet1 from '../src/assets/Violet/Violet.1.jpg'
+import violet2 from '../src/assets/Violet/Violet.2.jpg'
+import violet3 from '../src/assets/Violet/Violet.3.jpg'
+import fairy1 from '../src/assets/Fairy/fairy1.jpg'
+import fairy2 from '../src/assets/Fairy/fairy2.jpg'
+import whale1 from '../src/assets/Whale/whale1.jpg'
+import whale2 from '../src/assets/Whale/whale2.jpg'
+import whale3 from '../src/assets/Whale/whale3.jpg'
+import whale4 from '../src/assets/Whale/whale4.jpg'
+import cherry1 from '../src/assets/Cherry/cherry1'
+import cherry2 from '../src/assets/Cherry/cherry2'
+import cherry3 from '../src/assets/Cherry/cherry3'
+import hearts1 from '../src/assets/Hearts/hearts1'
+import hearts2 from '../src/assets/Hearts/hearts2'
+import hearts3 from '../src/assets/Hearts/hearts3'
+import redBand1 from '../src/assets/RedBand/winter-band.1.jpg'
+import redBand2 from '../src/assets/RedBand/winter-band.2.jpg'
+import redBand3 from '../src/assets/RedBand/winter-band.3.jpg'
+import band1 from '../src/assets/Bands/band.1.jpg'
+import band2 from '../src/assets/Bands/band.2.jpg'
+import complet1 from '../src/assets/Complet/complet.1.jpg'
+import complet2 from '../src/assets/Complet/complet.2.jpg'
+import complet3 from '../src/assets/Complet/complet.3.jpg'
+
 
 const postDataArray = [
   {
@@ -9,7 +41,16 @@ const postDataArray = [
     Wykonany został z bawełny, która w dotyku przypomina len. Jest bardzo trwały (u nas funkcjonuje od roku, tak się sprawdzał, że uszyłam sobie większy 👍 ). Śliczny wzór podkreśla czarna tasiemka. 
     Worek w edycji limitowanej, materiał jest już niestety niedostępny. Jego wymiary to 42x42 cm. 
     Polecam jako twórca i użytkownik 😊`,
-    userId: uuidv4()
+    background: wild1,
+    images: [
+      {
+       image1: wild1,
+       image2: wild2,
+       image3: wild3,
+       id:0
+     }
+    ],
+    userId: uuidv4(),
   },
   {
     title: 'Wilk',
@@ -19,7 +60,18 @@ const postDataArray = [
     95% bawełna, 5% elastan.
     A może zamarzyła Ci się taka bluza w innym kolorze? 
     Zapraszam do wiadomości prywatnej! `,
-    userId: uuidv4()
+    background: wolf1,
+    images: [
+      {
+       image1: wolf1,
+       image2: wolf2,
+       image3: wolf3,
+       image4: wolf4,
+       image5: wolf5,
+       id:0
+     }
+    ],
+    userId: uuidv4(),
   },
   {
     title: 'Fiolet',
@@ -28,6 +80,15 @@ const postDataArray = [
     Podstawowy krój - do takiej bluzy możesz zamówić swoją wymarzoną naszywkę. Wystarczy, że do mnie napiszesz 🙂
     Legginsy ze wzmocnionym szwem, gotowe do zadań specjalnych. 
     Dresik wykonany z dresówki drapanej, 95% bawełna 5% elastan, rozmiar 98/104. Rękawy i nogawki rosną wraz z maluchem.`,
+    background: violet1,
+    images: [
+      {
+       image1: violet1,
+       image2: violet2,
+       image3: violet3,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -37,6 +98,14 @@ const postDataArray = [
     Uszyłam ją dawno, gdy jeszcze nie miałam porządnej maszyny do robienia wykończenia rodem ze sklepu. Coś dla fanów rękodzieła i niepowtarzalności. Powstała z myślą "może kiedyś będę miała swoją pracownię? W sumie lubię szyć, może warto spróbować...?". 😏 Wtedy nie wiedziałam jeszcze, że na jej plecach naszyję swoje logo. 
     Na sukience ukryła się cała bajkowa opowieść o rudej wróżce i jej przyjaciołach. 🥀 🐿 🦌🧚‍♀️
     Zapraszam do wiadomości prywatnej 🙂 `,
+    background: fairy1,
+    images: [
+      {
+       image1: fairy1,
+       image2: fairy2,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -46,6 +115,16 @@ const postDataArray = [
     Ostatnio trafiłam na film, w którym dwa wieloryby pływały wokół dziewczyny na desce SUP. Niesamowite! Nie mogłam się oderwać od ich gracji i spokoju 😌 
     Dresik uszyty z dresówki z baaardzo milutkim wykończeniem od środka. ☺️ 95% bawełna, 5% elastan. Dres rośnie razem z maluchem i jest dostępny w rozmiarze 104/110.
     Jeśli masz ochotę, żeby Twój Maluch śmigał w takim dresiku, napisz do mnie 😊 📧`,
+    background: whale1,
+    images: [
+      {
+       image1: whale1,
+       image2: whale2,
+       image3: whale3,
+       image4: whale4,
+        id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -56,6 +135,15 @@ const postDataArray = [
     Czereśniowy wzór podkreśla czarna koronka. 🍒🍒🍒 
     Spódniczka wykonana z bawełny, dostępna w rozmiarze 98 cm. 
     Jeśli interesuje Cię inny rozmiar, napisz! 📧`,
+    background: cherry1,
+    images: [
+      {
+       image1: cherry1,
+       image2: cherry2,
+       image3: cherry3,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -66,14 +154,32 @@ const postDataArray = [
     Przed Wami sukienka, która powstała pod wpływem inspiracji popularnymi Walentynkami 🥰 Będzie się ślicznie prezentować na dwulatce z białą koszulką i rajstopkami. 
     Dostępna od ręki w rozmiarze 92 cm, inne rozmiary na zamówienie. 
     Materiał to 100% bawełna.`,
+    background: hearts1,
+    images: [
+      {
+       image1: hearts1,
+       image2: hearts2,
+       image3: hearts3,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
-    title: 'Pinokio',
+    title: 'Zima',
     author: 'Magdalena Paul',
     body: `Wersja zimowa wypróbowana na dworze i jako, że dzieci chore (u Was też? 🤧)- przy gotowaniu zupy. W domu zdecydowanie za ciepła ale poza domem idealna. 😉 
     Opcja idealna również na prezent. 🎁 A ku mojemu zdziwieniu Boże Narodzenie tuż tuż. 🤭🎄
     Koloru możemy poszukać specjalnie pod Twoje potrzeby, wystarczy że do mnie napiszesz. 📩`,
+    background: redBand1,
+    images: [
+      {
+       image1: redBand1,
+       image2: redBand2,
+       image3: redBand3,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -82,6 +188,14 @@ const postDataArray = [
     body: `Czy Wasza mama też zawsze radziła zakrywać uszy i czoło żeby nie zmarzły? 😊 Sama dalej słyszę tą troskę przy każdym wspólnym jesiennym i zimowym wyjściu 🍂❄️ 
     Także dziewczyny, dziś coś dla Was 👱🏻‍♀️ Opaski z mięciutkiej dzianiny ściągaczowej, 95% bawełny organicznej, 5% elastan. Koloru jak zwykle możemy poszukać razem 🌈
     Niedługo pojawi się wersja ze ściągacza swetrowego w zestawie z komino szalikiem, nie lada gratka dla każdego zmarzlucha 🌬️`,
+    background: band1,
+    images: [
+      {
+       image1: band1,
+       image2: band2,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   {
@@ -89,6 +203,15 @@ const postDataArray = [
     author: 'Magdalena Paul',
     body: `Przedstawiam Wam niedźwiadki, które chciały się ukryć na czapkach, ale znalazły je kolorowe nitki i nie pozwoliły zapaść w zimowy sen 🐻🪡 
     Po zamówienia na czapki zapraszam do wiadomości prywatnej, czapki i kominy szyję na wymiar z materiału, który wcześniej ustalimy. Prążek, polar, dresówka, zieleń, błękit, pomarańcz - wszystko zależy od Twoich preferencji 😊 🍂🍁`,
+    background: complet1,
+    images: [
+      {
+       image1: complet1,
+       image2: complet2,
+       image3: complet3,
+       id:0
+     }
+    ],
     userId: uuidv4()
   },
   
