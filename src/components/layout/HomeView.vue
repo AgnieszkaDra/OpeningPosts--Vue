@@ -1,21 +1,9 @@
 <template>
-<NavigationComponent :headline="headline" />
-<PostsComponent />
+  <div>
+    <PostsComponent />
+  </div>
 </template>
 
-<script>
-import NavigationComponent from '@/components/NavigationComponent.vue';
-import PostsComponent from '@/components/PostsComponent.vue';
-export default {
-  name: "HomeView",
-  components: {
-    NavigationComponent,
-    PostsComponent
-  },
-  data() {
-    return {
-      headline: "Client Reviews"
-    };
-  }
-};
+<script setup>
+  import PostsComponent from '@/components/PostsComponent.vue';
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavigationComponent/>
+    <NavigationComponent headline="Co nowego"/>
     <router-view/>
   </div>
 </template>
