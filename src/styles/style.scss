@@ -1,10 +1,10 @@
 @import '../styles/abstracts/colors';
 @import '../styles//abstracts/media-query';
+@import '../styles//abstracts/mixins';
 
 body {
     padding: 0;
-    background-color: $color-dark-turcoise;
-    color: $color-navy;
+    color: $color-grey-light;
     max-width: 100%;
     font-size: 16px;
     font-weight: 400;
@@ -17,10 +17,23 @@ body {
     height: 100%;
 }
 
+h3 {
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.3em;
+}
+
 .nav {
     height: 10vh;
     background-color: $color-light-green;
     padding: 0 40px;
+}
+
+.section {
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .posts {
@@ -29,9 +42,45 @@ body {
         @include respond(tablet) {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 1fr;
+            grid-gap: 20px;
         }
     &__item {
         padding: 10px;
+    }
+}
+
+.post {
+    height: 600px;
+    &__image {
+        height: 250px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__header {
+        height: 50px;
+        color: $color-grey-dark;
+    }
+    &__text {
+        height: 220px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__author {
+        display: none;
+    }
+    &__readMore {
+        width: 100%;
+        height: 60px;
+        @include flexAbsoluteCenter;
+            &-link {
+                width: 250px;
+                height: 50%;
+                padding: 10px;
+                text-align: center;
+                color: $color-dark-turcoise;
+                border: 3px solid $color-dark-turcoise;
+                border-radius: 100px;
+        }
     }
 }

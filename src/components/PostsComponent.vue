@@ -1,14 +1,42 @@
 <template>
   <section class='section posts'>
-    <div 
+    <article 
       v-for="(post, index) in postsData" 
       :key="index"
-      class="posts__item"
+      class="posts__item post"
     >
-      {{ post.title }}
-      {{ post.body}}
-      {{ post.author }}
+    <div 
+      class="post__image" 
+      :style="{ backgroundImage: `url(${post.background})`}">
     </div>
+    <header
+      class="post__header" 
+    >
+      <h3>
+         {{ post.title }} 
+      </h3>
+    </header>
+    <div 
+      class="post__text"
+    >
+      {{ post.body}}
+      {{ post.bodySecond}}
+    </div>
+    <div
+      class="post__author"
+    >
+      {{ post.author}}
+    </div>
+    <div
+      class="post__readMore"
+    >
+      <a
+      class="post__readMore-link"
+      >
+        Przeczytaj więcej
+      </a>
+    </div>
+  </article>
   </section>
 </template>
 
@@ -21,4 +49,5 @@ const postsData = postDataArray
 createNewPosts(postDataArray)
 
 </script>
+
 
