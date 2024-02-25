@@ -32,6 +32,15 @@ import complet2 from '../src/assets/Complet/complet.2.jpg'
 import complet3 from '../src/assets/Complet/complet.3.jpg'
 
 
+const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique. Vivamus dignissim tortor id quam porttitor fermentum. Nullam blandit bibendum nisi eget viverra. Sed velit urna, interdum vel, ultricies vel, faucibus at, quam. Donec elit est, consectetuer adipiscing, aliquet id, vulputate a, magna.
+
+Nullam sapien sem, ornare ac, nonummy non, lobortis a, enim. Nunc tincidunt ante vitae massa. Duis ante orci, molestie vitae, placerat vel, aliquet ut, massa. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, tellus eu sollicitudin consequat, felis libero efficitur arcu, non congue lorem felis eu turpis. Suspendisse viverra ligula nec semper ultricies. Sed auctor laoreet ligula, sit amet fringilla leo. Suspendisse potenti. Integer dictum auctor ipsum, non vestibulum nisi lobortis et. Etiam id aliquet metus, id bibendum urna.
+
+Sed tempor enim et nisi finibus, quis gravida justo pulvinar. Curabitur nec mi vel arcu hendrerit faucibus at eget sapien. In hac habitasse platea dictumst. Sed eget quam vitae augue tempor egestas id in massa. Vivamus ultricies id enim in scelerisque. Phasellus vel elit varius, scelerisque lorem eu, dignissim eros. Nunc vitae leo ut est lacinia tristique. Etiam malesuada ut nulla a convallis. In vehicula, turpis sed interdum finibus, lorem nulla mattis nisi, vitae fermentum nulla odio et quam. Vivamus vitae est eget ex lacinia feugiat. Sed lobortis orci eu metus posuere congue. Sed vehicula ante nec ex vestibulum, at efficitur felis auctor. Etiam ut nunc bibendum, lacinia nisl ac, fermentum erat. Sed id metus nec mauris volutpat dapibus eget a nisl. Sed ut elit nec eros volutpat sodales.`
+
+
 const postDataArray = [
   {
     title: 'Leśne zwierzęta',
@@ -40,7 +49,8 @@ const postDataArray = [
     Worek idealny dla przedszkolaka, ale też dla mamy, która potrzebuje osobnej torby na potrzebne rzeczy dla malucha.
     Wykonany został z bawełny, która w dotyku przypomina len. Jest bardzo trwały (u nas funkcjonuje od roku, tak się sprawdzał, że uszyłam sobie większy 👍 ). Śliczny wzór podkreśla czarna tasiemka. 
     Worek w edycji limitowanej, materiał jest już niestety niedostępny. Jego wymiary to 42x42 cm. 
-    Polecam jako twórca i użytkownik 😊`,
+    Polecam jako twórca i użytkownik 😊,`,
+    bodySecond: lorem,
     background: wild1,
     images: [
       {
@@ -60,6 +70,7 @@ const postDataArray = [
     95% bawełna, 5% elastan.
     A może zamarzyła Ci się taka bluza w innym kolorze? 
     Zapraszam do wiadomości prywatnej! `,
+    bodySecond: lorem,
     background: wolf1,
     images: [
       {
@@ -81,6 +92,7 @@ const postDataArray = [
     Legginsy ze wzmocnionym szwem, gotowe do zadań specjalnych. 
     Dresik wykonany z dresówki drapanej, 95% bawełna 5% elastan, rozmiar 98/104. Rękawy i nogawki rosną wraz z maluchem.`,
     background: violet1,
+    bodySecond: lorem,
     images: [
       {
        image1: violet1,
@@ -99,6 +111,7 @@ const postDataArray = [
     Na sukience ukryła się cała bajkowa opowieść o rudej wróżce i jej przyjaciołach. 🥀 🐿 🦌🧚‍♀️
     Zapraszam do wiadomości prywatnej 🙂 `,
     background: fairy1,
+    bodySecond: lorem,
     images: [
       {
        image1: fairy1,
@@ -116,6 +129,7 @@ const postDataArray = [
     Dresik uszyty z dresówki z baaardzo milutkim wykończeniem od środka. ☺️ 95% bawełna, 5% elastan. Dres rośnie razem z maluchem i jest dostępny w rozmiarze 104/110.
     Jeśli masz ochotę, żeby Twój Maluch śmigał w takim dresiku, napisz do mnie 😊 📧`,
     background: whale1,
+    bodySecond: lorem,
     images: [
       {
        image1: whale1,
@@ -136,6 +150,7 @@ const postDataArray = [
     Spódniczka wykonana z bawełny, dostępna w rozmiarze 98 cm. 
     Jeśli interesuje Cię inny rozmiar, napisz! 📧`,
     background: cherry1,
+    bodySecond: lorem,
     images: [
       {
        image1: cherry1,
@@ -155,6 +170,7 @@ const postDataArray = [
     Dostępna od ręki w rozmiarze 92 cm, inne rozmiary na zamówienie. 
     Materiał to 100% bawełna.`,
     background: hearts1,
+    bodySecond: lorem,
     images: [
       {
        image1: hearts1,
@@ -172,6 +188,7 @@ const postDataArray = [
     Opcja idealna również na prezent. 🎁 A ku mojemu zdziwieniu Boże Narodzenie tuż tuż. 🤭🎄
     Koloru możemy poszukać specjalnie pod Twoje potrzeby, wystarczy że do mnie napiszesz. 📩`,
     background: redBand1,
+    bodySecond: lorem,
     images: [
       {
        image1: redBand1,
@@ -189,6 +206,7 @@ const postDataArray = [
     Także dziewczyny, dziś coś dla Was 👱🏻‍♀️ Opaski z mięciutkiej dzianiny ściągaczowej, 95% bawełny organicznej, 5% elastan. Koloru jak zwykle możemy poszukać razem 🌈
     Niedługo pojawi się wersja ze ściągacza swetrowego w zestawie z komino szalikiem, nie lada gratka dla każdego zmarzlucha 🌬️`,
     background: band1,
+    bodySecond: lorem,
     images: [
       {
        image1: band1,
@@ -204,6 +222,7 @@ const postDataArray = [
     body: `Przedstawiam Wam niedźwiadki, które chciały się ukryć na czapkach, ale znalazły je kolorowe nitki i nie pozwoliły zapaść w zimowy sen 🐻🪡 
     Po zamówienia na czapki zapraszam do wiadomości prywatnej, czapki i kominy szyję na wymiar z materiału, który wcześniej ustalimy. Prążek, polar, dresówka, zieleń, błękit, pomarańcz - wszystko zależy od Twoich preferencji 😊 🍂🍁`,
     background: complet1,
+    bodySecond: lorem,
     images: [
       {
        image1: complet1,
