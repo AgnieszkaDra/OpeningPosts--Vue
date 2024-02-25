@@ -29,6 +29,7 @@
     </div>
     <div
       class="post__readMore"
+      @click="navigateToPost(post.title)"
     >
       <a
       class="post__readMore-link"
@@ -42,6 +43,13 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const navigateToPost = (title) => {
+    router.push({ path: `/${title}`})
+};
 
 const props = defineProps({
   postsData: {

@@ -12,7 +12,6 @@ import postDataArray from '../data/post';
 import { onMounted, provide, ref } from 'vue'
 const postsData = ref([])
 
-
 onMounted(() => {
   postDataArray.forEach(postData => {
   fetch('https://jsonplaceholder.typicode.com/posts', {
