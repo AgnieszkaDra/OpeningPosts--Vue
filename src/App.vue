@@ -1,15 +1,12 @@
 <template>
-  <HomeView />
+  <div>
+    <NavigationComponent/>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-import HomeView from './components/layout/HomeView.vue';
-
-export default {
-  components: {
-    HomeView
-  }
-};
+<script setup>
+import NavigationComponent from './components/NavigationComponent.vue';
 </script>
 
 <style lang="scss">
