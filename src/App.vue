@@ -6,7 +6,38 @@
 </template>
 
 <script setup>
-import NavigationComponent from './components/NavigationComponent.vue';
+
+import NavigationComponent from './components/NavigationComponent.vue'
+import postDataArray from '../data/post';
+import { onMounted, provide, ref } from 'vue'
+const postsData = ref([])
+
+
+onMounted(() => {
+  postDataArray.forEach(postData => {
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: postData.title,
+      body: postData.body,
+      userId: postData.userId
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    postsData.value.push(data);
+  })
+  .catch(error => {
+    console.error('Error creating post:', error);
+  });
+});
+})
+
+provide('postsData', postsData)
+
 </script>
 
 <style lang="scss">
