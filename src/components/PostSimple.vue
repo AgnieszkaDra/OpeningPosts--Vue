@@ -1,10 +1,26 @@
 <template>
-  <section class='section posts'>
-    <h4>This will be single post</h4>
-  </section>
+  <div>
+    <h2>{{ decodedTitle }}</h2>
+  </div>
 </template>
 
-<script setup>
+<script>
+export default {
+  data() {
+    return {
+      decodedTitle: ''
+    };
+  },
+  mounted() {
+    const route = this.$route;
+    const path = route.path;
+    const segments = path.split('/');
+    const lastSegment = segments[segments.length - 1];
+    const decodedTitle = decodeURIComponent(lastSegment);
+    this.decodedTitle = decodedTitle;
+  }
+  }
+
 </script>
 
 
