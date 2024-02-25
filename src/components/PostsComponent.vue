@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const navigateToPost = (title) => {
-    router.push({ path: `/${title}`})
+    router.push({ path: `/${title}`});
 };
 
 const props = defineProps({

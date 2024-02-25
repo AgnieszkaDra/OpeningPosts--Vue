@@ -22,12 +22,15 @@ onMounted(() => {
     body: JSON.stringify({
       title: postData.title,
       body: postData.body,
+      bodySecond: postData.bodySecond,
+      background: postData.background,
       userId: postData.userId
     }),
   })
   .then(response => response.json())
   .then(data => {
     postsData.value.push(data);
+    console.log(data)
   })
   .catch(error => {
     console.error('Error creating post:', error);

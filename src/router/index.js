@@ -4,7 +4,9 @@ import PostSimple from '../components/PostSimple.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
-  { path: '/:title', name: 'Post Simple', component: PostSimple, props: true }, 
+  { path: '/:title', name: 'Post Simple', component: PostSimple, props: route => ({
+    title: decodeURIComponent(route.params.title)
+  }) }, 
 ];
 
 const router = createRouter({
