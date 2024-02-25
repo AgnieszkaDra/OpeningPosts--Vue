@@ -1,8 +1,9 @@
 <template>
   <section class='section posts'>
     <article 
-      v-for="(post, index) in postsData" 
-      :key="index"
+      v-for="(post) in postsData" 
+      :key="post.userId"
+      :name="post.title"
       class="posts__item post"
     >
     <div 
@@ -29,6 +30,7 @@
     </div>
     <div
       class="post__readMore"
+      @click="navigateToPost(post.title)"
     >
       <a
       class="post__readMore-link"
@@ -41,12 +43,18 @@
 </template>
 
 <script setup>
-
+import { useRouter } from 'vue-router';
 import createNewPosts from '../providers/createNewPosts' 
 import postDataArray from '../../data/post'
 
+const router = useRouter();
+
 const postsData = postDataArray
 createNewPosts(postDataArray)
+
+const navigateToPost = (title) => {
+    router.push({ path: `/${title}`})
+};
 
 </script>
 

@@ -3,12 +3,12 @@ import HomeView from '../components/layout/HomeView.vue'
 import PostSimple from '../components/PostSimple.vue'; 
 
 const routes = [
-  { path: '/', component: HomeView },
-  { path: '/post', component: PostSimple }, 
+  { path: '/', name: 'Home', component: HomeView },
+  { path: '/:title', name: 'Post Simple', component: PostSimple, props: true }, 
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHashHistory(process.env.BASE__URL),
   routes,
 });
 
