@@ -1,8 +1,8 @@
 <template>
   <section class="section posts">
     <article 
-      v-for="(post, index) in props.postsData" 
-      :key="index" 
+      v-for="post in paginatedPosts" 
+      :key="post.id" 
       class="posts__item post"
     >
       <div 
@@ -43,18 +43,33 @@
       </router-link>
     </article>
   </section>
-  <PaginationComponent/>
+  <PaginationComponent 
+        :currentPage="currentPage" 
+        :totalPages="totalPages" 
+        @pageChanged="setCurrentPage" 
+      />
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 import PaginationComponent from './PaginationComponent.vue';
 
-const props = defineProps({
-  postsData: {
-    required: true,
-  }
+const store = useStore();
+const currentPage = computed(() => store.state.currentPage);
+const totalPages = computed(() => store.state.totalPages);
+const postsData = computed(() => store.state.postsData);
+
+const postsPerPage = store.state.postsPerPage;
+
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage.value - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  return postsData.value.slice(startIndex, endIndex);
 });
 
+const setCurrentPage = (page) => {
+  store.commit('setCurrentPage', page);
+};
 </script>
 

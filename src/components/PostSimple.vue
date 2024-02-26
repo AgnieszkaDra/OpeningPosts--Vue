@@ -12,36 +12,40 @@
   </div>
 </template>
 
-<script>
-import { ref, onMounted, inject } from 'vue';
-import { useRoute } from 'vue-router'; 
+<script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
-export default {
-  setup() {
-    const decodedTitle = ref('');
-    const postsData = inject('postsData');
-    const selectedPost = ref(null);
-    const route = useRoute(); 
+const store = useStore();
+const currentPage = computed(() => store.state.currentPage);
+console.log(currentPage)
 
-    const findPostByTitle = () => {
-      const path = route.path;
-      const segments = path.split('/');
-      const lastSegment = segments[segments.length - 1];
-      const decodedTitleValue = decodeURIComponent(lastSegment);
+// export default {
+//   setup() {
+//     const decodedTitle = ref('');
+//     const postsData = inject('postsData');
+//     const selectedPost = ref(null);
+//     const route = useRoute(); 
 
-      selectedPost.value = postsData.value.find(post => post.title === decodedTitleValue);
-    };
+//     const findPostByTitle = () => {
+//       const path = route.path;
+//       const segments = path.split('/');
+//       const lastSegment = segments[segments.length - 1];
+//       const decodedTitleValue = decodeURIComponent(lastSegment);
 
-    onMounted(() => {
-     findPostByTitle();
-    });
+//       selectedPost.value = postsData.value.find(post => post.title === decodedTitleValue);
+//     };
 
-    return {
-      decodedTitle, 
-      selectedPost 
-    };
-  }
-};
+//     onMounted(() => {
+//      findPostByTitle();
+//     });
+
+//     return {
+//       decodedTitle, 
+//       selectedPost 
+//     };
+//   }
+// };
 </script>
 
 
