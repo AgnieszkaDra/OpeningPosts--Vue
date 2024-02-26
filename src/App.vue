@@ -1,13 +1,22 @@
 <template>
   <div>
     <NavigationComponent headline="Co nowego"/>
+    <section 
+      class="section operations"
+    >
+      <SearchInput/>
+      <FilterInput/>
+  </section>
     <router-view/>
   </div>
 </template>
 
 <script setup>
 
-import NavigationComponent from './components/NavigationComponent.vue'
+import NavigationComponent from './components/NavigationComponent'
+import SearchInput from './components/SearchInput';
+import FilterInput from './components/FilterInput'
+
 import postDataArray from '../data/post';
 import { onMounted, provide, ref } from 'vue'
 const postsData = ref([])
