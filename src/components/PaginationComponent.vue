@@ -14,7 +14,7 @@
       <button 
         class="pagination__button pagination__button--main"
       >
-        2
+        3
       </button>
       <button 
         class="pagination__button pagination__button--main"
