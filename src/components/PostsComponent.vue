@@ -43,10 +43,12 @@
       </router-link>
     </article>
   </section>
+  <PaginationComponent/>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
+import PaginationComponent from './PaginationComponent.vue';
 
 const props = defineProps({
   postsData: {
