@@ -3,7 +3,7 @@
    <div v-if="selectedPost">
       <h3>{{ selectedPost.title }}</h3>
       <p>{{ selectedPost.body }}</p>
-      <p>{{ selectedPost.bodySecond }}</p>
+      <div>{{ selectedPost.bodySecond }}</div>
       <p>{{ selectedPost.author }}</p>
     </div>
   </div>
