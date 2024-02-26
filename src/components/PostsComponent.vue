@@ -28,34 +28,33 @@
       >
         {{ post.author }}
       </div>
-      <router-link 
-        :to="{ name: `${post.title}` }" 
-      >
-        <div
+      <div
         class="post__readMore"
         >
         <a
           class="post__readMore-link"
+          @click="navigateToPost(post)"
         >
           Przeczytaj więcej
         </a>
         </div> 
-      </router-link>
     </article>
   </section>
   <PaginationComponent 
-        :currentPage="currentPage" 
-        :totalPages="totalPages" 
-        @pageChanged="setCurrentPage" 
-      />
+    :currentPage="currentPage" 
+    :totalPages="totalPages" 
+    @pageChanged="setCurrentPage" 
+  />
 </template>
 
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
 
 const store = useStore();
+const router = useRouter();
 const currentPage = computed(() => store.state.currentPage);
 const totalPages = computed(() => store.state.totalPages);
 const postsData = computed(() => store.state.postsData);
@@ -71,5 +70,9 @@ const paginatedPosts = computed(() => {
 const setCurrentPage = (page) => {
   store.commit('setCurrentPage', page);
 };
-</script>
 
+const navigateToPost = (post) => {
+  const route = { name: post.title };
+  router.push(route);
+};
+</script>
