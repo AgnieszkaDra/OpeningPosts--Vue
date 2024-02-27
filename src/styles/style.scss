@@ -120,21 +120,18 @@ h3 {
 
 .posts {
     display: grid;
-    grid-template-columns: 80%;
+    grid-template-columns: 100%;
 
     @include respond(tablet) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px;
     }
-
-    &__item {
-        padding: 10px;
-    }
 }
 
+
 .post {
-    height: 600px;
+    height: 700px;
 
     &__image {
         height: 250px;
@@ -152,10 +149,12 @@ h3 {
         height: 220px;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-bottom: 20px;
     }
 
     &__author {
-        display: none;
+        text-align: end;
+        margin-bottom: 10px;
     }
 
     &__readMore {
