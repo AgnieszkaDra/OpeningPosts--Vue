@@ -17,16 +17,16 @@
           {{ post.title }}
         </h3>
       </header>
+       <div 
+        class="post__author"
+      >
+        {{ post.author }}
+      </div>
       <div 
         class="post__text"
       >
         {{ post.body }}
         {{ post.bodySecond }}
-      </div>
-      <div 
-        class="post__author"
-      >
-        {{ post.author }}
       </div>
       <div
         class="post__readMore"
