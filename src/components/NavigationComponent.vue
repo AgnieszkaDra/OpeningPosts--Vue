@@ -1,6 +1,12 @@
 <template>
-  <nav class='nav'>
-    <h1>{{ headline }}</h1>
+  <nav class='section nav'>
+    <h1 
+      class='nav__headline'
+    >
+      {{ headline }}
+    </h1>
+    <div class='nav__underline'>
+    </div>
   </nav>
 </template>
 
