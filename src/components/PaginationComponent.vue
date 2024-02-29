@@ -33,17 +33,19 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { usePostStore } from '@/store';
 
 library.add(faChevronLeft);
 library.add(faChevronRight);
 
-const store = useStore();
-const currentPage = computed(() => store.state.currentPage);
-const totalPages = computed(() => store.state.totalPages);
+const postStore = usePostStore();
+console.log(postStore)
+const currentPage = computed(() => postStore.currentPage);
+console.log(currentPage)
+const totalPages = computed(() => postStore.totalPages);
 
-const setCurrentPage = (page) => {
-  store.commit('setCurrentPage', page);
+const setCurrentPage = () => {
+  postStore.currentPage
 };
 
 

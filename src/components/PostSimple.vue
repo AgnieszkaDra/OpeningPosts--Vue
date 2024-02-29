@@ -11,11 +11,11 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
+import { usePostStore } from '@/store';
 import { useRoute } from 'vue-router'; 
 
-const store = useStore();
-const postsData = computed(() => store.state.postsData);
+const postStore = usePostStore();
+const postsData = computed(() => postStore.postsData);
 const route = useRoute(); 
 const selectedPost = ref(null);
 

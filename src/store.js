@@ -1,30 +1,18 @@
-import { createStore } from 'vuex';
+import { defineStore } from "pinia";
 import postDataArray from '../data/post';
 
-const store = createStore({
-  state() {
-    return {
-      currentPage: 1,
-      totalPages: 1,
-      postsData: [], 
-      postsPerPage: 3 
-    };
-  },
-  mutations: {
-    setCurrentPage(state, page) {
-      state.currentPage = page;
-    },
-    setTotalPages(state, totalPages) {
-      state.totalPages = totalPages;
-    },
-    setPostsData(state, posts) {
-      state.postsData = posts;
-    }
-  },
+export const usePostStore = defineStore({
+  id: 'post',
+  state: () => ({
+    currentPage: 1,
+    totalPages: 1,
+    postsData: [],
+    postsPerPage: 3,
+  }),
   actions: {
-    async fetchPosts(context) {
+    async fetchPosts() {
       try {
-        const posts = [];
+        const postsArray = [];
         for (const postData of postDataArray) {
           const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -41,17 +29,17 @@ const store = createStore({
             }),
           });
           const data = await response.json();
-          posts.push(data);
-          console.log(data)
+          postsArray.push(data);
         }
-        console.log(context)
-        context.commit('setPostsData', posts);
-        context.commit('setTotalPages', Math.ceil(posts.length / context.state.postsPerPage));
+        this.$patch({
+          postsData: postsArray,
+          totalPages: Math.ceil(postsArray.length / this.postsPerPage)
+        });
+        console.log(this.postsData)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
     }
-  }
-});
+  },
 
-export default store;
+});
