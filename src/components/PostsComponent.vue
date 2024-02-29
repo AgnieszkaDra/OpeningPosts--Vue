@@ -41,9 +41,9 @@ const postStore = usePostStore();
 postStore.fetchPosts();
 const router = useRouter();
 
-const posts = postStore.postsData
-const currentPage = computed(() => posts.currentPage);
-const totalPages = computed(() => posts.totalPages);
+const currentPage = computed(() => postStore.currentPage);
+const totalPages = computed(() => postStore.totalPages);
+const posts = computed(() => postStore.postsData)
 
 const setCurrentPage = (page) => {
   postStore.currentPage(page)
@@ -53,6 +53,5 @@ const navigateToPost = (post) => {
   const route = { name: post.title };
   router.push(route);
 };
-
 
 </script>
