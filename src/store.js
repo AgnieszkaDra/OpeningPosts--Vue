@@ -39,7 +39,12 @@ export const usePostStore = defineStore({
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
+    },
+    setCurrentPage(page) {
+      // Ensure that the page is within the valid range
+      if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+      }
     }
-  },
-
+  }
 });

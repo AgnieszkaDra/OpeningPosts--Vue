@@ -1,7 +1,7 @@
 <template>
   <section class="section posts">
     <article 
-      v-for="post in posts" 
+      v-for="post in paginatedPosts" 
       :key="post.id" 
       class="posts__item post"
     >
@@ -44,6 +44,15 @@ const router = useRouter();
 const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
 const posts = computed(() => postStore.postsData)
+
+const postsPerPage = computed(() => postStore.postsPerPage);
+
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage.value - 1) * postsPerPage.value;
+  const endIndex = startIndex + postsPerPage.value;
+  return posts.value.slice(startIndex, endIndex);
+});
+
 
 const setCurrentPage = (page) => {
   postStore.currentPage(page)
