@@ -42,8 +42,8 @@ postStore.fetchPosts();
 const router = useRouter();
 
 const posts = postStore.postsData
-const currentPage = computed(() => postStore.currentPage);
-const totalPages = computed(() => postStore.totalPages);
+const currentPage = computed(() => posts.currentPage);
+const totalPages = computed(() => posts.totalPages);
 
 const setCurrentPage = (page) => {
   postStore.currentPage(page)
