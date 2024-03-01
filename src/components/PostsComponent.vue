@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { usePostStore } from '@/store';
 import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
@@ -46,6 +46,16 @@ const totalPages = computed(() => postStore.totalPages);
 const posts = computed(() => postStore.postsData)
 
 const postsPerPage = computed(() => postStore.postsPerPage);
+
+watch(
+  () => postStore.currentAuthor,
+  (newAuthor) => {
+    console.log(newAuthor);
+    postStore.postsData = postStore.postsData.filter(({ author }) => author === newAuthor);
+    console.log(postStore)
+  }
+);
+
 
 const paginatedPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage.value;

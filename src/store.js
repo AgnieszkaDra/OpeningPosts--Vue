@@ -8,6 +8,7 @@ export const usePostStore = defineStore({
     totalPages: 1,
     postsData: [],
     postsPerPage: 3,
+    currentAuthor: null, // Add currentRegion state
   }),
   actions: {
     async fetchPosts() {
@@ -35,7 +36,6 @@ export const usePostStore = defineStore({
           postsData: postsArray,
           totalPages: Math.ceil(postsArray.length / this.postsPerPage)
         });
-        console.log(this.postsData)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -45,6 +45,24 @@ export const usePostStore = defineStore({
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
       }
-    }
-  }
+    },
+    // Add a setter for currentRegion
+    setCurrentAuthor(author) {
+      this.currentAuthor = author;
+    },
+  },
+  // Define the computed property filteredByRegion
+  getters: {
+    filteredByAuthor() {
+      console.log(this.currentAuthor)
+      if(this.currentAuthor === 'Wojtek Paul') {
+        alert('Wojtek')
+      }
+      return this.currentAuthor !== null
+        ? this.postsData.filter(({ author }) => {
+            return author === this.currentAuthor;
+          })
+        : this.postsData;
+    },
+  },
 });
