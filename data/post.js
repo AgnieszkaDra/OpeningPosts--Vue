@@ -44,7 +44,7 @@ Sed tempor enim et nisi finibus, quis gravida justo pulvinar. Curabitur nec mi v
 const postDataArray = [
   {
     title: 'Leśne zwierzęta',
-    author: 'Magdalena Paul',
+    author: 'Wojtek Paul',
     body: `Hop hop! Dzisiaj wołam do Was z lasu, w którym między drzewami grasuje lis i jeż.  🦊  🌳  🦔 A może ktoś jeszcze się tu ukrył? 🧐
     Worek idealny dla przedszkolaka, ale też dla mamy, która potrzebuje osobnej torby na potrzebne rzeczy dla malucha.
     Wykonany został z bawełny, która w dotyku przypomina len. Jest bardzo trwały (u nas funkcjonuje od roku, tak się sprawdzał, że uszyłam sobie większy 👍 ). Śliczny wzór podkreśla czarna tasiemka. 
@@ -64,7 +64,7 @@ const postDataArray = [
   },
   {
     title: 'Wilk',
-    author: 'Magdalena Paul',
+    author: 'Wojtek Paul',
     body: `Proszę Państwa, oto wilk. 🐺 Kiedyś bardzo się zdziwiłam jak się okazało, że wilki unikają ludzi i są bardzo płochliwe.  Nasz wilk się oswoił, ukrył w czerni i chętnie się z kimś zaprzyjaźni 😊
     Bluza wykonana z dresówki drapanej, ze ściągaczami, które "rosną" wraz z dzieckiem - wystarczy je odwinąć. 
     95% bawełna, 5% elastan.
@@ -86,7 +86,7 @@ const postDataArray = [
   },
   {
     title: 'Fiolet',
-    author: 'Magadalena Paul',
+    author: 'Magdalena Paul',
     body: `Fiolet! Bardzo modny kolor tego sezonu tym razem na podstawowej bluzie w Szyte Ukryte. Połączenie z kwiatkami przypomina o zbliżającej się wiośnie  🌷 🪻 ☀️ 
     Podstawowy krój - do takiej bluzy możesz zamówić swoją wymarzoną naszywkę. Wystarczy, że do mnie napiszesz 🙂
     Legginsy ze wzmocnionym szwem, gotowe do zadań specjalnych. 
