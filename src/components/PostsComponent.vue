@@ -32,30 +32,19 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { usePostStore } from '@/store';
 import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
 
 const postStore = usePostStore();
-postStore.fetchPosts();
+postStore.fetchPosts()
 const router = useRouter();
 
 const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
-const posts = computed(() => postStore.postsData)
-
+const posts = computed(() => postStore.filteredByAuthor);
 const postsPerPage = computed(() => postStore.postsPerPage);
-
-watch(
-  () => postStore.currentAuthor,
-  (newAuthor) => {
-    console.log(newAuthor);
-    postStore.postsData = postStore.postsData.filter(({ author }) => author === newAuthor);
-    console.log(postStore)
-  }
-);
-
 
 const paginatedPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage.value;
@@ -63,14 +52,13 @@ const paginatedPosts = computed(() => {
   return posts.value.slice(startIndex, endIndex);
 });
 
-
-const setCurrentPage = (page) => {
-  postStore.currentPage(page)
-};
-
 const navigateToPost = (post) => {
   const route = { name: post.title };
   router.push(route);
+};
+
+const setCurrentPage = (page) => {
+  postStore.currentPage(page);
 };
 
 </script>

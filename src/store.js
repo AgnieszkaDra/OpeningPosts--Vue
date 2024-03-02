@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { ref } from 'vue';
 import postDataArray from '../data/post';
 
 export const usePostStore = defineStore({
@@ -8,12 +9,13 @@ export const usePostStore = defineStore({
     totalPages: 1,
     postsData: [],
     postsPerPage: 3,
-    currentAuthor: null, // Add currentRegion state
+    currentAuthor: 'Autorzy', 
   }),
   actions: {
     async fetchPosts() {
       try {
         const postsArray = [];
+        const isLoading = ref(true)
         for (const postData of postDataArray) {
           const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -26,11 +28,13 @@ export const usePostStore = defineStore({
               bodySecond: postData.bodySecond,
               background: postData.background,
               author: postData.author,
+              authors: postData.authors,
               userId: postData.userId
             }),
           });
           const data = await response.json();
           postsArray.push(data);
+          isLoading.value = false
         }
         this.$patch({
           postsData: postsArray,
@@ -41,28 +45,21 @@ export const usePostStore = defineStore({
       }
     },
     setCurrentPage(page) {
-      // Ensure that the page is within the valid range
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
       }
     },
-    // Add a setter for currentRegion
     setCurrentAuthor(author) {
       this.currentAuthor = author;
     },
   },
-  // Define the computed property filteredByRegion
   getters: {
-    filteredByAuthor() {
-      console.log(this.currentAuthor)
-      if(this.currentAuthor === 'Wojtek Paul') {
-        alert('Wojtek')
+    filteredByAuthor: (state) => {
+      if (state.currentAuthor === 'Autorzy') {
+          return state.postsData;
+      } else {
+        return state.postsData.filter(({ author }) => author === state.currentAuthor);
       }
-      return this.currentAuthor !== null
-        ? this.postsData.filter(({ author }) => {
-            return author === this.currentAuthor;
-          })
-        : this.postsData;
     },
   },
 });

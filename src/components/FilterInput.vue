@@ -15,7 +15,7 @@
   
   <script setup>
   const AUTHORS = ['Autorzy', 'Magdalena Paul', 'Wojtek Paul'];
-  
+ import { onMounted } from 'vue';
   import { usePostStore } from '@/store';
   
   const postStore = usePostStore();
@@ -24,5 +24,9 @@
     const selectedAuthor = event.target.value;
     postStore.setCurrentAuthor(selectedAuthor);
 };
+
+onMounted(() => {
+  postStore.fetchPosts();
+});
   
   </script>
