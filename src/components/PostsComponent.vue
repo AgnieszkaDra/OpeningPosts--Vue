@@ -38,12 +38,11 @@ import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
 
 const postStore = usePostStore();
-postStore.fetchPosts()
 const router = useRouter();
 
 const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
-const posts = computed(() => postStore.filteredByAuthor);
+let posts = computed(() => postStore.filteredByAuthor);
 const postsPerPage = computed(() => postStore.postsPerPage);
 
 const paginatedPosts = computed(() => {
