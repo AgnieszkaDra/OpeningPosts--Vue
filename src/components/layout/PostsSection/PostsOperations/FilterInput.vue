@@ -19,20 +19,15 @@ const AUTHORS = ['Autorzy', 'Magdalena Paul', 'Wojtek Paul'];
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { onMounted } from 'vue';
 import { usePostStore } from '@/store';
 
-library.add(faArrowDown)
-
 const postStore = usePostStore();
+
+library.add(faArrowDown)
 
 const handleAuthorChange = (event) => {
   const selectedAuthor = event.target.value;
   postStore.setCurrentAuthor(selectedAuthor);
 };
-
-onMounted(() => {
-postStore.fetchPosts();
-});
 
 </script>
