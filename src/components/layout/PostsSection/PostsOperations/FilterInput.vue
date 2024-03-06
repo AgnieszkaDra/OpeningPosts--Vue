@@ -6,17 +6,23 @@
         :key="author" 
         :value="author" 
         class="filter__option"
-      >
+        >
         {{ author }}
       </option>
     </select>
+    <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
   </div>
 </template>
 
 <script setup>
 const AUTHORS = ['Autorzy', 'Magdalena Paul', 'Wojtek Paul'];
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { onMounted } from 'vue';
 import { usePostStore } from '@/store';
+
+library.add(faArrowDown)
 
 const postStore = usePostStore();
 
