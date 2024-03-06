@@ -34,15 +34,10 @@ h3 {
     background-color: $color-light-green;
     @include flexAbsoluteCenter();
     flex-direction: column;
-    margin-left: 20px;
-    margin-right: 20px;
+   
     &__headline {
         text-align: center;
         text-transform: uppercase;
-    }
-    &__underline {
-        width: 40px;
-        border: 2px solid $color-dark-turcoise; 
     }
 }
 
