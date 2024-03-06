@@ -1,9 +1,7 @@
 <script setup>
-  import PostsComponent from '@/components/PostsComponent.vue';
+  import PostsComponent from './PostsSection/PostsComponent.vue';
  </script>
 
 <template>
-  <div>
-    <PostsComponent/>
-  </div>
+  <PostsComponent/>
 </template>
