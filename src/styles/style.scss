@@ -21,6 +21,10 @@ a {
     text-decoration: none;
 }
 
+h2 {
+    margin: 0;
+}
+
 h3 {
     font-size: 20px;
     text-align: center;
@@ -115,12 +119,39 @@ h3 {
 
 .posts {
     display: grid;
+    grid-template-areas: 
+        'headline'
+        'operations'
+        'elements'
+        'pagination';
     grid-template-columns: 100%;
 
-    @include respond(tablet) {
+    &__headline {
+        grid-area: headline;
+        @include flexAbsoluteCenter;
+        flex-direction: column;
+        text-transform: uppercase;
+        .underline {
+            width: 50px;
+            border: 2px solid $color-dark-turcoise;
+            margin-top: 10px;
+        }
+    }
+    &__operations {
+        grid-area: operations;
+    }
+    &__elements {
+        grid-area: elements;
+        display: grid;
+        grid-template-columns: 100%;
+        @include respond(tablet) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px;
+    }
+    }
+    &__pagination {
+        grid-area: pagination;
     }
 }
 
