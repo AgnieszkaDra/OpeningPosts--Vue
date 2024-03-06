@@ -4,6 +4,9 @@
       headline="Co nowego" 
       class="posts__headline"
     />
+    <PostsOperations 
+      class="posts__operations"
+    />
     <div class="posts__elements">
       <article 
       v-for="post in paginatedPosts" 
@@ -44,8 +47,8 @@ import { computed } from 'vue';
 import { usePostStore } from '@/store';
 import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
-
 import PostsHeadline from './PostsHeadline/PostsHeadline.vue';
+import PostsOperations from './PostsOperations/PostsOperations'
 
 const postStore = usePostStore();
 postStore.fetchPosts()
