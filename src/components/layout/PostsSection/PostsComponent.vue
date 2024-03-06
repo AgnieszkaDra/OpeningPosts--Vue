@@ -1,6 +1,11 @@
 <template>
   <section class="section posts">
-    <article 
+    <PostsHeadline 
+      headline="Co nowego" 
+      class="posts__headline"
+    />
+    <div class="posts__elements">
+      <article 
       v-for="post in paginatedPosts" 
       :key="post.id" 
       class="posts__item post"
@@ -23,12 +28,15 @@
         </a>
       </div> 
     </article>
+    </div>
+    <PaginationComponent 
+      :currentPage="currentPage" 
+      :totalPages="totalPages" 
+      @pageChanged="setCurrentPage"
+      class="posts__pagination"
+    />
   </section>
-  <PaginationComponent 
-    :currentPage="currentPage" 
-    :totalPages="totalPages" 
-    @pageChanged="setCurrentPage" 
-  />
+ 
 </template>
 
 <script setup>
@@ -36,6 +44,8 @@ import { computed } from 'vue';
 import { usePostStore } from '@/store';
 import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
+
+import PostsHeadline from './PostsHeadline/PostsHeadline.vue';
 
 const postStore = usePostStore();
 postStore.fetchPosts()
