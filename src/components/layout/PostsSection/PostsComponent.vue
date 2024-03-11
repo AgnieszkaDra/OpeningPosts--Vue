@@ -20,7 +20,7 @@
       <header class="post__header">
         <h3>{{ post.title }}</h3>
       </header>
-      <div class="post__author">{{ post.select }}</div>
+      <div class="post__author">{{ post.author }}</div>
       <div class="post__text">
         {{ post.body }}
         {{ post.bodySecond }}

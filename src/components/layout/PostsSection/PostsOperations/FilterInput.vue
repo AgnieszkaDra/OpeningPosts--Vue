@@ -1,19 +1,29 @@
 <template>
   <div class="operations__filter filter">
-    <div class="filter__submenu">
-      <fieldset>
-        <legend>{{ AUTHORS.title }}</legend>
+    <input
+         type="text"
+         placeholder="Wszystkie posty"
+         class="filter__input"
+     />
+    <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
+    <div 
+      class="filter__submenu"
+      :class="{ 'active': isOpenSubMenu }"
+    >
+      <fieldset class="fieldset">
+        <legend class="legend">{{ AUTHORS.title }}</legend>
         <div v-for="(author, index) in AUTHORS.options" :key="index">
           <input type="checkbox" 
             :id="'authorCheckbox' + index" 
             v-model="selectedInput" 
-            :value="author" 
+            :value="author"
+            class="input" 
           />
-          <label :for="'authorCheckbox' + index">{{ author }}</label>
+          <label :for="'authorCheckbox' + index" class="label">{{ author }}</label>
         </div>
       </fieldset>
       <fieldset>
-        <legend>{{ CATEGORIES.title }}</legend>
+        <legend class="legend">{{ CATEGORIES.title }}</legend>
         <div v-for="(category, index) in CATEGORIES.options" 
           :key="index"
         >
@@ -26,14 +36,20 @@
         </div>
       </fieldset>
     </div>
-  <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
+  
   </div>
 </template>
 
 <!-- https://awplife.com/demo/blog-filter-premium/blog-without-filter/ -->
 
 <script setup>
-import {  ref } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { usePostStore} from '../../../../store.js'
+import { watch, ref } from 'vue'
+
+library.add(faArrowDown)
 
 const AUTHORS = {
   title: 'Autorzy',
@@ -44,25 +60,19 @@ const CATEGORIES = {
   title: 'Kategoria',
   options: ['Dzieci', 'Kobieta']
 }
-
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { usePostStore} from '../../../../store.js'
-import { watch } from 'vue'
-
-library.add(faArrowDown)
 const selectedInput = ref([]);
+const isOpenSubMenu = ref(false);
 
 const postStore = usePostStore();
 postStore.setCurrentSelect(selectedInput)
+
+// const openSubMenu = () => {
+//   isOpenSubMenu.value = !isOpenSubMenu.value;
+// }
 
 watch(selectedInput, () => {
   postStore.setCurrentSelect(selectedInput)
   postStore.filteredBySelect
 })
-
-
-
 
 </script>
