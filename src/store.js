@@ -23,40 +23,17 @@ export const usePostStore = defineStore({
   getters: {
     filteredBySelect: (state) => {
       let filteredPosts = [];
-
+    
       if (state.currentSelect.length === 0) {
         filteredPosts = state.postsData;
       } else {
-  
-       const res1 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[0]){
-          filteredPosts.push(post)
-        }
-       }))
-       const res2 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[0] && state.currentSelect[1]){
-          filteredPosts.push(post)
-        }
-       }))
-       const res3 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[0] && state.currentSelect[1] && state.currentSelect[2]){
-          filteredPosts.push(post)
-        }
-       }))
-       const res4 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[0] && state.currentSelect[1] && state.currentSelect[2] && state.currentSelect[3]){
-          filteredPosts.push(post)
-        }
-       }))
-
-       if (res1.length > 0 || res2.length > 0 || res3.length > 0 || res4.length > 0 ) {
-        filteredPosts = [...res1, ...res2, ...res3, ...res4];
+        filteredPosts = state.postsData.filter(post => {
+          return state.currentSelect.every(selection => post.select.includes(selection));
+        });
       }
-    }
-      return filteredPosts
-
+    
+      return filteredPosts;
     }
   }
 },
-
 );
