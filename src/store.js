@@ -27,17 +27,34 @@ export const usePostStore = defineStore({
       if (state.currentSelect.length === 0) {
         filteredPosts = state.postsData;
       } else {
-        const res1 = state.postsData.filter(post => post.select === state.currentSelect[0]);
-        const res2 = state.postsData.filter(post => post.select === state.currentSelect[1]);
-        const res3 = state.postsData.filter(post => post.select === state.currentSelect[2]);
-        const res4 = state.postsData.filter(post => post.select === state.currentSelect[3]);
-
-        if (res1.length > 0 || res2.length > 0 || res3.length > 0 || res4.length > 0) {
-          filteredPosts = [...res1, ...res2, ...res3, ...res4];
+  
+       const res1 = state.postsData.filter(post => post.select.forEach(element => {
+        if(element === state.currentSelect[0]){
+          filteredPosts.push(post)
         }
+       }))
+       const res2 = state.postsData.filter(post => post.select.forEach(element => {
+        if(element === state.currentSelect[1]){
+          filteredPosts.push(post)
+        }
+       }))
+       const res3 = state.postsData.filter(post => post.select.forEach(element => {
+        if(element === state.currentSelect[2]){
+          filteredPosts.push(post)
+        }
+       }))
+       const res4 = state.postsData.filter(post => post.select.forEach(element => {
+        if(element === state.currentSelect[3]){
+          filteredPosts.push(post)
+        }
+       }))
 
+       if (res1.length > 0 || res2.length > 0 || res3.length > 0 || res4.length > 0 ) {
+        filteredPosts = [...res1, ...res2, ...res3, ...res4];
       }
+    }
       return filteredPosts
+
     }
   }
 },

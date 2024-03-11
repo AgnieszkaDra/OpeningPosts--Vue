@@ -28,9 +28,9 @@ onMounted(async () => {
               body: postData.body,
               bodySecond: postData.bodySecond,
               background: postData.background,
-              select: postData.select
-              ,
-              authors: postData.authors,
+              select: postData.select,
+              author: postData.author,
+              categories: postData.categories,
               userId: postData.userId
             }),
           });
