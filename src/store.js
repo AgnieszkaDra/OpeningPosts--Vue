@@ -34,17 +34,17 @@ export const usePostStore = defineStore({
         }
        }))
        const res2 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[1]){
+        if(element === state.currentSelect[0] && state.currentSelect[1]){
           filteredPosts.push(post)
         }
        }))
        const res3 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[2]){
+        if(element === state.currentSelect[0] && state.currentSelect[1] && state.currentSelect[2]){
           filteredPosts.push(post)
         }
        }))
        const res4 = state.postsData.filter(post => post.select.forEach(element => {
-        if(element === state.currentSelect[3]){
+        if(element === state.currentSelect[0] && state.currentSelect[1] && state.currentSelect[2] && state.currentSelect[3]){
           filteredPosts.push(post)
         }
        }))
