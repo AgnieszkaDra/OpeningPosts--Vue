@@ -1,33 +1,68 @@
 <template>
   <div class="operations__filter filter">
-    <select class="filter__select" @change="handleAuthorChange">
-      <option 
-        v-for="author in AUTHORS" 
-        :key="author" 
-        :value="author" 
-        class="filter__option"
+    <div class="filter__submenu">
+      <fieldset>
+        <legend>{{ AUTHORS.title }}</legend>
+        <div v-for="(author, index) in AUTHORS.options" :key="index">
+          <input type="checkbox" 
+            :id="'authorCheckbox' + index" 
+            v-model="selectedInput" 
+            :value="author" 
+          />
+          <label :for="'authorCheckbox' + index">{{ author }}</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ CATEGORIES.title }}</legend>
+        <div v-for="(category, index) in CATEGORIES.options" 
+          :key="index"
         >
-        {{ author }}
-      </option>
-    </select>
-    <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
+          <input type="checkbox" 
+            :id="'categoryCheckbox' + index" 
+            v-model="selectedInput" 
+            :value="category" 
+          />
+          <label :for="'categoryCheckbox' + index">{{ category }}</label>
+        </div>
+      </fieldset>
+    </div>
+  <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
   </div>
 </template>
 
+<!-- https://awplife.com/demo/blog-filter-premium/blog-without-filter/ -->
+
 <script setup>
-const AUTHORS = ['Autorzy', 'Magdalena Paul', 'Wojtek Paul'];
+import {  ref } from 'vue';
+
+const AUTHORS = {
+  title: 'Autorzy',
+  options: ['Magdalena Paul', 'Wojtek Paul']
+}
+
+const CATEGORIES = {
+  title: 'Kategoria',
+  options: ['Dzieci', 'Kobieta']
+}
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { usePostStore } from '@/store';
-
-const postStore = usePostStore();
+import { usePostStore} from '../../../../store.js'
+import { watch } from 'vue'
 
 library.add(faArrowDown)
+const selectedInput = ref([]);
 
-const handleAuthorChange = (event) => {
-  const selectedAuthor = event.target.value;
-  postStore.setCurrentAuthor(selectedAuthor);
-};
+const postStore = usePostStore();
+postStore.setCurrentSelect(selectedInput)
+
+watch(selectedInput, () => {
+  postStore.setCurrentSelect(selectedInput)
+  postStore.filteredBySelect
+})
+
+
+
 
 </script>

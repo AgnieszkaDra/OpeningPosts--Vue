@@ -6,7 +6,7 @@
 <script setup>
 
 import NavigationComponent from './components/NavigationComponent'
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { usePostStore } from '@/store';
 import postDataArray from '../data/post';
 
@@ -28,7 +28,8 @@ onMounted(async () => {
               body: postData.body,
               bodySecond: postData.bodySecond,
               background: postData.background,
-              author: postData.author,
+              select: postData.select
+              ,
               authors: postData.authors,
               userId: postData.userId
             }),
@@ -47,6 +48,24 @@ onMounted(async () => {
         console.error('Error fetching posts:', error);
       }
     });
+
+    watch(() => postStore.currentSelect, () => {
+      postStore.filteredBySelect;
+    });
+
+    watch(postStore.currentSelect, () => {
+
+
+
+
+  postStore.filteredBySelect
+ 
+ 
+})
+
+   
+
+
 
 </script>
 

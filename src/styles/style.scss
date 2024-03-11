@@ -102,9 +102,25 @@ h3 {
     display: flex;
     justify-content: flex-start;
     position: relative;
+    height: 40px;
+        padding: 0 50px 0 50px;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px $color-dark-turcoise;
+        color: $color-grey-dark;
 
     @include respond(tablet) {
         justify-content: flex-end;
+    }
+
+    &__submenu {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 400px;
+        height: 400px;
+        border: 3px solid pink;
     }
 
     &__select {
@@ -126,13 +142,19 @@ h3 {
         }
     }
 
+    &__option {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid pink;
+    }
+
     &__icon {
-     
+        position: absolute;
         right: 30px;
         top: 50%;
         transform: translateY(-50%);
         color: $color-dark-turcoise;
-        position: absolute;
+        pointer-events: none;
     }
 }
 

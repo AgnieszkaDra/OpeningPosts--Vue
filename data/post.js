@@ -44,7 +44,7 @@ Sed tempor enim et nisi finibus, quis gravida justo pulvinar. Curabitur nec mi v
 const postDataArray = [
   {
     title: 'Leśne zwierzęta',
-    author: 'Wojtek Paul',
+    select: ['Dzieci', 'Wojtek Paul'],
     category: 'Dzieci',
     body: `Hop hop! Dzisiaj wołam do Was z lasu, w którym między drzewami grasuje lis i jeż.  🦊  🌳  🦔 A może ktoś jeszcze się tu ukrył? 🧐
     Worek idealny dla przedszkolaka, ale też dla mamy, która potrzebuje osobnej torby na potrzebne rzeczy dla malucha.
@@ -65,7 +65,7 @@ const postDataArray = [
   },
   {
     title: 'Wilk',
-    author: 'Wojtek Paul',
+    select: 'Wojtek Paul',
     category: 'Dzieci',
     body: `Proszę Państwa, oto wilk. 🐺 Kiedyś bardzo się zdziwiłam jak się okazało, że wilki unikają ludzi i są bardzo płochliwe.  Nasz wilk się oswoił, ukrył w czerni i chętnie się z kimś zaprzyjaźni 😊
     Bluza wykonana z dresówki drapanej, ze ściągaczami, które "rosną" wraz z dzieckiem - wystarczy je odwinąć. 
@@ -88,7 +88,7 @@ const postDataArray = [
   },
   {
     title: 'Fiolet',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     category: 'Dzieci',
     body: `Fiolet! Bardzo modny kolor tego sezonu tym razem na podstawowej bluzie w Szyte Ukryte. Połączenie z kwiatkami przypomina o zbliżającej się wiośnie  🌷 🪻 ☀️ 
     Podstawowy krój - do takiej bluzy możesz zamówić swoją wymarzoną naszywkę. Wystarczy, że do mnie napiszesz 🙂
@@ -108,7 +108,7 @@ const postDataArray = [
   },
   {
     title: 'Sukienka',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Dzieci',
     body: `Najmniejsze cudeńko w mojej kolekcji - sukieneczka w rozmiarze 68 ☺️ 
@@ -128,7 +128,7 @@ const postDataArray = [
   },
   {
     title: 'Wieloryby',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Dzieci',
     body: `Ktoś z Was ma ochotę zanurzyć się w głębinach oceanu z rodziną wielorybów? 🐋 🐋 🐋 
@@ -150,7 +150,7 @@ const postDataArray = [
   },
   {
     title: 'Czereśnie',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Dzieci',
     body: `Czasem trafię na taki materiał, że od razu wiem co chciałabym z niego uszyć ☺️ 
@@ -172,7 +172,7 @@ const postDataArray = [
   },
   {
     title: 'Na Walentynki',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Dzieci',
     body: `Słodkie spotkanie różu i czerwieni. Na plecach miękkiej sztruksowej sukienki ukryło się małe serduszko ❤️ 
@@ -194,7 +194,7 @@ const postDataArray = [
   },
   {
     title: 'Zima',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Dzieci',
     body: `Wersja zimowa wypróbowana na dworze i jako, że dzieci chore (u Was też? 🤧)- przy gotowaniu zupy. W domu zdecydowanie za ciepła ale poza domem idealna. 😉 
@@ -214,7 +214,7 @@ const postDataArray = [
   },
   {
     title: 'Opaski',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: 'Kobieta',
     body: `Czy Wasza mama też zawsze radziła zakrywać uszy i czoło żeby nie zmarzły? 😊 Sama dalej słyszę tą troskę przy każdym wspólnym jesiennym i zimowym wyjściu 🍂❄️ 
@@ -233,7 +233,7 @@ const postDataArray = [
   },
   {
     title: 'Czapki',
-    author: 'Magdalena Paul',
+    select: 'Magdalena Paul',
     authors: 'Autorzy',
     category: ['Dzieci','Kobieta'],
     body: `Przedstawiam Wam niedźwiadki, które chciały się ukryć na czapkach, ale znalazły je kolorowe nitki i nie pozwoliły zapaść w zimowy sen 🐻🪡 

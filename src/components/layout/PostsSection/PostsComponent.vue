@@ -20,7 +20,7 @@
       <header class="post__header">
         <h3>{{ post.title }}</h3>
       </header>
-      <div class="post__author">{{ post.author }}</div>
+      <div class="post__author">{{ post.select }}</div>
       <div class="post__text">
         {{ post.body }}
         {{ post.bodySecond }}
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { usePostStore } from '@/store';
 import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
@@ -55,7 +55,7 @@ const router = useRouter();
 
 const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
-let posts = computed(() => postStore.filteredByAuthor);
+let posts = computed(() => postStore.filteredBySelect);
 const postsPerPage = computed(() => postStore.postsPerPage);
 
 const paginatedPosts = computed(() => {
@@ -69,8 +69,8 @@ const navigateToPost = (post) => {
   router.push(route);
 };
 
-const setCurrentPage = (page) => {
-  postStore.currentPage(page);
-};
+watch(() => postStore.currentSelect, () => {
+  posts = computed(() => postStore.filteredBySelect);
+});
 
 </script>
