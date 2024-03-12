@@ -54,18 +54,8 @@ onMounted(async () => {
     });
 
     watch(postStore.currentSelect, () => {
-
-
-
-
-  postStore.filteredBySelect
- 
- 
-})
-
-   
-
-
+    postStore.filteredBySelect
+    })
 
 </script>
 
