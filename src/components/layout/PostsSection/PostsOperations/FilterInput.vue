@@ -1,11 +1,14 @@
 <template>
-  <div class="operations__filter filter">
-    <input
-         type="text"
-         placeholder="Wszystkie posty"
-         class="filter__input"
-     />
-    <FontAwesomeIcon icon="arrow-down" class="filter__icon" />
+  <div class="operations__filter filter" >
+    <div 
+      class="filter__input"
+      @click="openSubMenu" >
+      <input
+        type="text"
+        placeholder="Wszystkie posty"
+      />
+    <FontAwesomeIcon icon="arrow-down" class="filter__icon" /> 
+    </div>
     <div 
       class="filter__submenu"
       :class="{ 'active': isOpenSubMenu }"
@@ -22,7 +25,7 @@
           <label :for="'authorCheckbox' + index" class="label">{{ author }}</label>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset class="fieldset">
         <legend class="legend">{{ CATEGORIES.title }}</legend>
         <div v-for="(category, index) in CATEGORIES.options" 
           :key="index"
@@ -30,9 +33,10 @@
           <input type="checkbox" 
             :id="'categoryCheckbox' + index" 
             v-model="selectedInput" 
-            :value="category" 
+            :value="category"
+            class="input" 
           />
-          <label :for="'categoryCheckbox' + index">{{ category }}</label>
+          <label :for="'categoryCheckbox' + index" class="label">{{ category }}</label>
         </div>
       </fieldset>
     </div>
@@ -66,9 +70,9 @@ const isOpenSubMenu = ref(false);
 const postStore = usePostStore();
 postStore.setCurrentSelect(selectedInput)
 
-// const openSubMenu = () => {
-//   isOpenSubMenu.value = !isOpenSubMenu.value;
-// }
+const openSubMenu = () => {
+  isOpenSubMenu.value = !isOpenSubMenu.value;
+}
 
 watch(selectedInput, () => {
   postStore.setCurrentSelect(selectedInput)
