@@ -20,7 +20,6 @@ export const usePostStore = defineStore({
       this.currentSelect = inputSelected;
     },
     setCurrentSearch(value) {
-      alert('value')
       this.currentSearch = value;
     },
   },
@@ -38,28 +37,4 @@ export const usePostStore = defineStore({
     
       return filteredPosts;
     },
-  
-    // filteredBySearch: (state) => {
-    //   let filteredPosts = [];
-      
-    //   for (const letter of state.currentSearch.toLowerCase()) {
-    //     filteredPosts = filteredPosts.filter(post => {
-    //       return post.title.includes(letter);
-    //     });
-    //   }
-      
-    //   return filteredPosts;
-    // },
-
-     
-    filteredBySearch: (state) => {
-      let filteredPosts = [];
-      console.log(state.currentSearch)
-        filteredPosts= state.postsData.filter(post => {
-          return post.title === state.currentSelect;
-        });
-     return filteredPosts;
-    } 
-   
-  
   }});
