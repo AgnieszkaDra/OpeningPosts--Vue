@@ -9,6 +9,14 @@ Opening Posts is a part of a blog application that will be developed for the ent
   <img src="./src/assets/view.png" alt="view" width="100%" max-width="600px"/>
 </p>
 
+## Technology Stack
+
+[![Vue](https://img.shields.io/badge/Vue-61DAFB.svg?style=for-the-badge&logo=vue.js&logoColor=black)] [![Pinia](https://img.shields.io/badge/Pinia-59DFA6.svg?style=for-the-badge&logo=pinia&logoColor=black)] [![SCSS](https://img.shields.io/badge/SCSS-ff69b4.svg?style=for-the-badge&logo=scss&logoColor=black)]
+
+🖥 **Features**
+
+- **Sorting Posts**: Posts can be filter by caterogies.
+
 ## Project setup
 ```
 npm install
