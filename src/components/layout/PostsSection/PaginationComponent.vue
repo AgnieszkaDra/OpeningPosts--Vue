@@ -2,9 +2,9 @@
   <section class="section">
     <nav aria-label="..." class="pagination-nav">
       <ul class="pagination">
-        <li
+        <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 && hasPosts ? setCurrentPage1(currentPage - 1) : null"
+          @click="currentPage > 1 && hasNextPosts ? setCurrentPage(currentPage - 1) : null"
           :class="{ disabled: currentPage === 1 || !hasPosts }"
         >
           <font-awesome-icon icon="chevron-left" />
@@ -14,14 +14,14 @@
           :key="page" 
           class="pagination__item pagination__item--main"
           :class="{ active: page === currentPage }"
-          @click="hasPosts ? setCurrentPage1(page) : null"
+          @click="hasNextPosts  ? setCurrentPage(page) : null"
         >
           {{ page }}
         </li>
-        <li
+        <li 
           class="pagination__item pagination__item--next"
-          @click="currentPage < totalPages && hasPosts ? setCurrentPage1(currentPage + 1) : null"
-          :class="{ disabled: currentPage === totalPages || !hasPosts }"
+          @click="currentPage < totalPages && hasNextPosts ? setCurrentPage(currentPage + 1) : null"
+          :class="{ disabled: currentPage === totalPages || !hasNextPosts  }"
         >
           <font-awesome-icon icon="chevron-right"/>
         </li>
@@ -45,9 +45,16 @@ const postStore = usePostStore();
 const currentPage = computed(() => postStore.currentPage);
 
 const totalPages = computed(() => postStore.totalPages);
+const posts = computed(() => postStore.filteredBySelect);
 
-const setCurrentPage1 = (page) => {
+const hasNextPosts = computed(() => {
+    const nextPageIndex = postStore.currentPage + 1;
+    return nextPageIndex * postStore.postsPerPage <= posts.value.length;
+});
+
+const setCurrentPage = (page) => {
   postStore.setCurrentPage(page);
+  
 };
 
 
