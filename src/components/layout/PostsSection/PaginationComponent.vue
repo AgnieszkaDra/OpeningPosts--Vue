@@ -4,8 +4,8 @@
       <ul class="pagination">
         <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 && hasNextPosts ? setCurrentPage(currentPage - 1) : null"
-          :class="{ disabled: currentPage === 1 || !hasPosts }"
+          @click="currentPage > 1 && hasPrevPosts ? setCurrentPage(currentPage - 1) : null"
+          :class="{ disabled: currentPage === 1 || !hasPrevPosts }"
         >
           <font-awesome-icon icon="chevron-left" />
         </li>
@@ -21,7 +21,7 @@
         <li 
           class="pagination__item pagination__item--next"
           @click="currentPage < totalPages && hasNextPosts ? setCurrentPage(currentPage + 1) : null"
-          :class="{ disabled: currentPage === totalPages || !hasNextPosts  }"
+          :class="{ disabled: currentPage === totalPages || !hasNextPosts }"
         >
           <font-awesome-icon icon="chevron-right"/>
         </li>
@@ -34,7 +34,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { usePostStore } from '@/store';
 
 library.add(faChevronLeft);
@@ -47,15 +47,34 @@ const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
 const posts = computed(() => postStore.filteredBySelect);
 
-const hasNextPosts = computed(() => {
+
+
+
+
+const setCurrentPage = (page) => {
+    postStore.setCurrentPage(page);
+};
+
+
+
+let hasNextPosts = computed(() => {
     const nextPageIndex = postStore.currentPage + 1;
     return nextPageIndex * postStore.postsPerPage <= posts.value.length;
 });
 
-const setCurrentPage = (page) => {
-  postStore.setCurrentPage(page);
-  
-};
 
 
+
+
+watch(() => postStore.currentPage, (newValue, oldValue) => {
+  // Check if the new value is greater than the old value
+  if (newValue > oldValue) {
+   hasNextPosts = computed(() => {
+      const nextPageIndex = postStore.currentPage + 1;
+      return nextPageIndex * postStore.postsPerPage <= posts.value.length;
+    });
+  }
+
+ 
+});
 </script>
