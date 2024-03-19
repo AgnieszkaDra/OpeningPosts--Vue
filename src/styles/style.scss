@@ -260,33 +260,29 @@ h3 {
 }
 
 .pagination {
-    height: 60px;
+   
+    width: 60%;
+    height: 4rem;
     @include flexAbsoluteCenter();
     color: $color-grey-dark;
+    list-style: none;
 
-    &__container {
-        width: 60%;
-        height: 4rem;
-        margin: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0.6rem;
-        background-color: $color-light-green;
-
-        @include respond(tablet) {
-            width: 40%;
-        }
+    &-nav {
+        width: 100%;
+        @include flexAbsoluteCenter();
     }
 
-    &__button {
-        width: 2.6rem;
+    &__item {
         height: 2.6rem;
+        padding: 10px;
         border-radius: 0.4rem;
         border-color: transparent;
-        margin: 0.8rem;
         font-size: 1.4rem;
+        @include flexAbsoluteCenter();
         cursor: pointer;
+        @include respond(tablet){
+            padding: 20px;
+        }
 
         &.active {
             color: $color-white;
