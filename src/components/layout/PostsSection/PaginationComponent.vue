@@ -2,9 +2,9 @@
   <section class="section">
     <nav aria-label="..." class="pagination-nav">
       <ul class="pagination">
-        <li
+        <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 && hasPosts ? setCurrentPage1(currentPage - 1) : null"
+          @click="setCurrentPage(currentPage - 1)"
           :class="{ disabled: currentPage === 1 || !hasPosts }"
         >
           <font-awesome-icon icon="chevron-left" />
@@ -14,13 +14,13 @@
           :key="page" 
           class="pagination__item pagination__item--main"
           :class="{ active: page === currentPage }"
-          @click="hasPosts ? setCurrentPage1(page) : null"
+          @click="setCurrentPage(page)"
         >
           {{ page }}
         </li>
-        <li
+        <li 
           class="pagination__item pagination__item--next"
-          @click="currentPage < totalPages && hasPosts ? setCurrentPage1(currentPage + 1) : null"
+          @click="setCurrentPage(currentPage + 1)"
           :class="{ disabled: currentPage === totalPages || !hasPosts }"
         >
           <font-awesome-icon icon="chevron-right"/>
@@ -46,7 +46,7 @@ const currentPage = computed(() => postStore.currentPage);
 
 const totalPages = computed(() => postStore.totalPages);
 
-const setCurrentPage1 = (page) => {
+const setCurrentPage = (page) => {
   postStore.setCurrentPage(page);
 };
 
