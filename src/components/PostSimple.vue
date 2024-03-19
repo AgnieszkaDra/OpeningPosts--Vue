@@ -28,5 +28,3 @@ selectedPost.value = postsData.value.find(post => post.title === decodedTitleVal
 
 </script>
 
-
-
