@@ -1,30 +1,32 @@
 <template>
-  <section class="section pagination">
-    <div class="pagination__container">
-      <button 
-        class="pagination__button pagination__button--prev"
-        @click="setCurrentPage1(currentPage - 1)"
-        :disabled="currentPage === 1"
-      >
-        <font-awesome-icon icon="chevron-left" />
-      </button>
-      <button 
-        v-for="page in totalPages" 
-        :key="page" 
-        class="pagination__button pagination__button--main"
-        :class="{ active: page === currentPage }"
-        @click="setCurrentPage1(page)"
-      >
-        {{ page }}
-      </button>
-      <button 
-        class="pagination__button pagination__button--next"
-        @click="setCurrentPage1(currentPage + 1)"
-        :disabled="currentPage === totalPages"
-      >
-        <font-awesome-icon icon="chevron-right"/>
-      </button>
-    </div>
+  <section class="section">
+    <nav aria-label="..." class="pagination-nav">
+      <ul class="pagination">
+        <li
+          class="pagination__item pagination__item--prev"
+          @click="currentPage > 1 && hasPosts ? setCurrentPage1(currentPage - 1) : null"
+          :class="{ disabled: currentPage === 1 || !hasPosts }"
+        >
+          <font-awesome-icon icon="chevron-left" />
+        </li>
+        <li 
+          v-for="page in totalPages" 
+          :key="page" 
+          class="pagination__item pagination__item--main"
+          :class="{ active: page === currentPage }"
+          @click="hasPosts ? setCurrentPage1(page) : null"
+        >
+          {{ page }}
+        </li>
+        <li
+          class="pagination__item pagination__item--next"
+          @click="currentPage < totalPages && hasPosts ? setCurrentPage1(currentPage + 1) : null"
+          :class="{ disabled: currentPage === totalPages || !hasPosts }"
+        >
+          <font-awesome-icon icon="chevron-right"/>
+        </li>
+      </ul>
+    </nav>
   </section>
 </template>
 
