@@ -1,11 +1,12 @@
 <template>
-  <NavigationComponent headline="Tutaj będzie sekcja nawigacji"/>
+  <HeaderComponent></HeaderComponent>
+  <!-- <NavigationComponent headline="Tutaj będzie sekcja nawigacji"/> -->
   <router-view/>
 </template>
 
 <script setup>
 
-import NavigationComponent from './components/NavigationComponent'
+import HeaderComponent from './components/layout/Header/HeaderComponent.vue';
 import { onMounted, watch } from 'vue';
 import { usePostStore } from '@/store';
 import postData from '../data/post';

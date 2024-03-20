@@ -8,15 +8,23 @@
     </div>
   </div>
 </template>
- 
+
 <script setup>
 import { computed, ref } from 'vue';
 import { usePostStore } from '@/store';
+import { useRoute } from 'vue-router'; 
 
 const postStore = usePostStore();
 const postsData = computed(() => postStore.postsData);
+const route = useRoute(); 
 const selectedPost = ref(null);
-selectedPost.value = postsData.value.find(post => post.title);
+
+const path = route.path;
+const segments = path.split('/');
+const lastSegment = segments[segments.length - 1];
+const decodedTitleValue = decodeURIComponent(lastSegment);
+
+selectedPost.value = postsData.value.find(post => post.title === decodedTitleValue);
 
 </script>
 
