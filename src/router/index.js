@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../components/layout/HomeView.vue'
 import PostSimple from '../components/PostSimple'
 
 const routes = [
-  { path: '/', name: 'Home', component: HomeView },
+  { path: '/', name: 'Home', component: HomeView  },
   { path: '/Początek', name: 'Początek', component: PostSimple },
   { path: '/Zając', name: 'Zając', component: PostSimple },
   { path: '/Piłka', name: 'Piłka', component: PostSimple },
@@ -18,15 +18,16 @@ const routes = [
   { path: '/Czereśnie', name: 'Czereśnie', component: PostSimple },
   { path: '/Wieloryby', name: 'Wieloryby', component: PostSimple },
   { path: '/Sukienka', name: 'Sukienka', component: PostSimple },
-  { path: '/Co słychać?', name: 'Co słychać?', component: PostSimple },
+  { path: '/Co słychać', name: 'Co słychać', component: PostSimple },
   { path: '/Fiolet', name: 'Fiolet', component: PostSimple },
   { path: '/Wilk', name: 'Wilk', component: PostSimple },
   { path: '/Leśne zwierzęta', name: 'Leśne zwierzęta', component: PostSimple },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
 export default router
+
