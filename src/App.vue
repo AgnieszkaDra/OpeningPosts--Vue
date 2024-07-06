@@ -1,13 +1,10 @@
 <template>
-  <HeaderComponent></HeaderComponent>
-  <!-- <NavigationComponent headline="Tutaj będzie sekcja nawigacji"/> -->
   <router-view/>
 </template>
 
 <script setup>
 
-import HeaderComponent from './components/layout/Header/HeaderComponent.vue';
-import { onMounted, watch } from 'vue';
+import { onMounted } from 'vue';
 import { usePostStore } from '@/store';
 import postData from '../data/post';
 
@@ -31,14 +28,10 @@ onMounted(() => {
       
   postStore.$patch({
     postsData: postsArray,
-    totalPages: Math.ceil(postsArray.length / postStore.postsPerPage)
+    totalPages: Math.ceil(postStore.postsData.length / postStore.postsPerPage)
   });
 
-  }) 
-
-watch(postStore.currentSelect, () => {
-    postStore.filteredBySelect
-})
+}) 
 
 </script>
 

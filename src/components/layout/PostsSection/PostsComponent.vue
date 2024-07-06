@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { usePostStore } from '@/store';
 import PaginationComponent from './PaginationComponent.vue';
 import PostsHeadline from './PostsHeadline/PostsHeadline.vue';
@@ -64,8 +64,8 @@ const paginatedPosts = computed(() => {
   return posts.value.slice(startIndex, endIndex);
 });
 
-watch(() => postStore.currentSelect, () => {
-  posts = computed(() => postStore.filteredBySelect);
-});
+// watch(() => postStore.currentSelect, () => {
+//   posts = computed(() => postStore.filteredBySelect);
+// });
 
 </script>

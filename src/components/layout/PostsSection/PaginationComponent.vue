@@ -4,8 +4,8 @@
       <ul class="pagination">
         <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 && hasNextPosts ? setCurrentPage(currentPage - 1) : null"
-          :class="{ disabled: currentPage === 1 || !hasPosts }"
+          @click="currentPage > 1 ? setCurrentPage(currentPage + 1) : null"
+          :class="{ disabled: currentPage === 1 }"
         >
           <font-awesome-icon icon="chevron-left" />
         </li>
@@ -14,14 +14,14 @@
           :key="page" 
           class="pagination__item pagination__item--main"
           :class="{ active: page === currentPage }"
-          @click="hasNextPosts  ? setCurrentPage(page) : null"
+          @click="setCurrentPage(page)"
         >
           {{ page }}
         </li>
         <li 
           class="pagination__item pagination__item--next"
-          @click="currentPage < totalPages && hasNextPosts ? setCurrentPage(currentPage + 1) : null"
-          :class="{ disabled: currentPage === totalPages || !hasNextPosts  }"
+          @click="currentPage < totalPages ? setCurrentPage(currentPage - 1) : null"
+          :class="{ disabled: currentPage === totalPages }"
         >
           <font-awesome-icon icon="chevron-right"/>
         </li>
@@ -43,19 +43,21 @@ library.add(faChevronRight);
 const postStore = usePostStore();
 
 const currentPage = computed(() => postStore.currentPage);
-
+// const postsPerPage = computed(() => postStore.postsPerPage)
 const totalPages = computed(() => postStore.totalPages);
-const posts = computed(() => postStore.filteredBySelect);
 
-const hasNextPosts = computed(() => {
-    const nextPageIndex = postStore.currentPage + 1;
-    return nextPageIndex * postStore.postsPerPage <= posts.value.length;
-});
+// const posts = computed(() => postStore.filteredBySelect);
+
+// const hasNextPosts = computed(() => {
+//     const nextPageIndex = postStore.currentPage + 1;
+//     return nextPageIndex * postStore.postsPerPage <= posts.value.length;
+// });
 
 const setCurrentPage = (page) => {
   postStore.setCurrentPage(page);
-  
 };
+
+
 
 
 </script>
