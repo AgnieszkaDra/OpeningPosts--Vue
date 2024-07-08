@@ -4,7 +4,7 @@
       <ul class="pagination">
         <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 ? setCurrentPage(currentPage + 1) : null"
+          @click="currentPage > 1 ? setCurrentPage(currentPage - 1) : null"
           :class="{ disabled: currentPage === 1 }"
         >
           <font-awesome-icon icon="chevron-left" />
@@ -20,7 +20,7 @@
         </li>
         <li 
           class="pagination__item pagination__item--next"
-          @click="currentPage < totalPages ? setCurrentPage(currentPage - 1) : null"
+          @click="currentPage < totalPages ? setCurrentPage(currentPage + 1) : null"
           :class="{ disabled: currentPage === totalPages }"
         >
           <font-awesome-icon icon="chevron-right"/>
