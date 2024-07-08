@@ -1,12 +1,10 @@
 <template>
-  <NavigationComponent headline="Tutaj będzie sekcja nawigacji"/>
   <router-view/>
 </template>
 
 <script setup>
 
-import NavigationComponent from './components/NavigationComponent'
-import { onMounted, watch } from 'vue';
+import { onMounted } from 'vue';
 import { usePostStore } from '@/store';
 import postData from '../data/post';
 
@@ -30,14 +28,9 @@ onMounted(() => {
       
   postStore.$patch({
     postsData: postsArray,
-    totalPages: Math.ceil(postsArray.length / postStore.postsPerPage)
   });
 
-  }) 
-
-watch(postStore.currentSelect, () => {
-    postStore.filteredBySelect
-})
+}) 
 
 </script>
 

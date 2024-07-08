@@ -44,8 +44,6 @@
   </div>
 </template>
 
-<!-- https://awplife.com/demo/blog-filter-premium/blog-without-filter/ -->
-
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -76,7 +74,7 @@ const openSubMenu = () => {
 
 watch(selectedInput, () => {
   postStore.setCurrentSelect(selectedInput)
-  postStore.filteredBySelect
+  postStore.postsData
 })
 
 </script>

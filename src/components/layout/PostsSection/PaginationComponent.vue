@@ -4,8 +4,8 @@
       <ul class="pagination">
         <li 
           class="pagination__item pagination__item--prev"
-          @click="currentPage > 1 && hasPrevPosts ? setCurrentPage(currentPage - 1) : null"
-          :class="{ disabled: currentPage === 1 || !hasPrevPosts }"
+          @click="currentPage > 1 ? setCurrentPage(currentPage + 1) : null"
+          :class="{ disabled: currentPage === 1 }"
         >
           <font-awesome-icon icon="chevron-left" />
         </li>
@@ -13,15 +13,15 @@
           v-for="page in totalPages" 
           :key="page" 
           class="pagination__item pagination__item--main"
-          :class="{ active: page === currentPage }"
-          @click="hasNextPosts  ? setCurrentPage(page) : null"
+          :class="{ active: page === currentPage, 'not-active': page > lastPage }"
+          @click="setCurrentPage(page)"
         >
           {{ page }}
         </li>
         <li 
           class="pagination__item pagination__item--next"
-          @click="currentPage < totalPages && hasNextPosts ? setCurrentPage(currentPage + 1) : null"
-          :class="{ disabled: currentPage === totalPages || !hasNextPosts }"
+          @click="currentPage < totalPages ? setCurrentPage(currentPage - 1) : null"
+          :class="{ disabled: currentPage === totalPages }"
         >
           <font-awesome-icon icon="chevron-right"/>
         </li>
@@ -34,47 +34,20 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { usePostStore } from '@/store';
 
 library.add(faChevronLeft);
 library.add(faChevronRight);
 
 const postStore = usePostStore();
-
+const lastPage = computed(() => postStore.lastPage);
 const currentPage = computed(() => postStore.currentPage);
 
 const totalPages = computed(() => postStore.totalPages);
-const posts = computed(() => postStore.filteredBySelect);
-
-
-
-
 
 const setCurrentPage = (page) => {
-    postStore.setCurrentPage(page);
+  postStore.setCurrentPage(page);
 };
 
-
-
-let hasNextPosts = computed(() => {
-    const nextPageIndex = postStore.currentPage + 1;
-    return nextPageIndex * postStore.postsPerPage <= posts.value.length;
-});
-
-
-
-
-
-watch(() => postStore.currentPage, (newValue, oldValue) => {
-  // Check if the new value is greater than the old value
-  if (newValue > oldValue) {
-   hasNextPosts = computed(() => {
-      const nextPageIndex = postStore.currentPage + 1;
-      return nextPageIndex * postStore.postsPerPage <= posts.value.length;
-    });
-  }
-
- 
-});
 </script>

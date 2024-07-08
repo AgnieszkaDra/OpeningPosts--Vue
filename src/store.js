@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-
+import { ref } from 'vue';
 export const usePostStore = defineStore({
   id: 'post',
   state: () => ({
     currentPage: 1,
-    totalPages: 1,
-    postsData: [],
+    lastPage: 1,
+    postsData: ref([]),
     postsPerPage: 3,
     currentSelect: [],
     currentSearch: ''
@@ -18,14 +18,23 @@ export const usePostStore = defineStore({
     },
     setCurrentSelect(inputSelected) {
       this.currentSelect = inputSelected;
+      this.setFirstPage()
+      this.setLastPage()
     },
-    setCurrentSearch(value) {
-      this.currentSearch = value;
+    setTotalPages(state) {
+      this.totalPages(state)
     },
+    setFirstPage() {
+      this.currentPage = 1
+    },
+    setLastPage() {
+      this.lastPage = this.totalPosts / this.postsPerPage
+    }
   },
   getters: {
     filteredBySelect: (state) => {
-      let filteredPosts = [];
+      
+      let filteredPosts = state.postsData;
     
       if (state.currentSelect.length === 0) {
         filteredPosts = state.postsData;
@@ -34,7 +43,15 @@ export const usePostStore = defineStore({
           return state.currentSelect.every(selection => post.select.includes(selection));
         });
       }
-    
-      return filteredPosts;
+      
+      return filteredPosts
     },
-  }});
+    totalPages: (state) => {
+      return Math.ceil(state.postsData.length / state.postsPerPage);
+    },
+    totalPosts: (state) => {
+      return Math.ceil(state.filteredBySelect.length);
+    },
+  }
+}
+);

@@ -26,9 +26,12 @@
         {{ post.bodySecond }}
       </div>
       <div class="post__readMore">
-        <a class="post__readMore-link" @click="navigateToPost(post)">
-          Przeczytaj więcej
-        </a>
+        <router-link 
+          :to="{name: decodeURIComponent(post.title)}"  
+          class="post__readMore-link"
+        >
+        Przeczytaj więcej
+        </router-link>
       </div> 
     </article>
     </div>
@@ -43,16 +46,13 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { usePostStore } from '@/store';
-import { useRouter } from 'vue-router';
 import PaginationComponent from './PaginationComponent.vue';
 import PostsHeadline from './PostsHeadline/PostsHeadline.vue';
 import PostsOperations from './PostsOperations/PostsOperations'
 
 const postStore = usePostStore();
-const router = useRouter();
-
 const currentPage = computed(() => postStore.currentPage);
 const totalPages = computed(() => postStore.totalPages);
 let posts = computed(() => postStore.filteredBySelect);
@@ -62,15 +62,6 @@ const paginatedPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage.value;
   const endIndex = startIndex + postsPerPage.value;
   return posts.value.slice(startIndex, endIndex);
-});
-
-const navigateToPost = (post) => {
-  const route = { name: post.title };
-  router.push(route);
-};
-
-watch(() => postStore.currentSelect, () => {
-  posts = computed(() => postStore.filteredBySelect);
 });
 
 </script>
