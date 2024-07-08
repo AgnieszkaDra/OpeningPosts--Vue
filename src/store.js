@@ -4,10 +4,7 @@ export const usePostStore = defineStore({
   id: 'post',
   state: () => ({
     currentPage: 1,
-<<<<<<< HEAD
-=======
     lastPage: 1,
->>>>>>> Pagination
     postsData: ref([]),
     postsPerPage: 3,
     currentSelect: [],
@@ -27,16 +24,11 @@ export const usePostStore = defineStore({
     setTotalPages(state) {
       this.totalPages(state)
     },
-<<<<<<< HEAD
-    setTotalPages(state) {
-      this.totalPages(state)
-=======
     setFirstPage() {
       this.currentPage = 1
     },
     setLastPage() {
       this.lastPage = this.totalPosts / this.postsPerPage
->>>>>>> Pagination
     }
   },
   getters: {
@@ -55,16 +47,11 @@ export const usePostStore = defineStore({
       return filteredPosts
     },
     totalPages: (state) => {
-<<<<<<< HEAD
-      return Math.ceil(state.filteredBySelect.length / state.postsPerPage);
-    }
-=======
       return Math.ceil(state.postsData.length / state.postsPerPage);
     },
     totalPosts: (state) => {
       return Math.ceil(state.filteredBySelect.length);
     },
->>>>>>> Pagination
   }
 }
 );

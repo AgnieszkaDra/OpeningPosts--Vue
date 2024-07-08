@@ -13,11 +13,7 @@
           v-for="page in totalPages" 
           :key="page" 
           class="pagination__item pagination__item--main"
-<<<<<<< HEAD
-          :class="{ active: page === currentPage }"
-=======
           :class="{ active: page === currentPage, 'not-active': page > lastPage }"
->>>>>>> Pagination
           @click="setCurrentPage(page)"
         >
           {{ page }}
@@ -47,27 +43,10 @@ library.add(faChevronRight);
 const postStore = usePostStore();
 const lastPage = computed(() => postStore.lastPage);
 const currentPage = computed(() => postStore.currentPage);
-// const postsPerPage = computed(() => postStore.postsPerPage)
 const totalPages = computed(() => postStore.totalPages);
-<<<<<<< HEAD
-
-// const posts = computed(() => postStore.filteredBySelect);
-
-// const hasNextPosts = computed(() => {
-//     const nextPageIndex = postStore.currentPage + 1;
-//     return nextPageIndex * postStore.postsPerPage <= posts.value.length;
-// });
-=======
->>>>>>> Pagination
 
 const setCurrentPage = (page) => {
   postStore.setCurrentPage(page);
 };
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> Pagination
 </script>

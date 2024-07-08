@@ -74,10 +74,7 @@ const openSubMenu = () => {
 
 watch(selectedInput, () => {
   postStore.setCurrentSelect(selectedInput)
-<<<<<<< HEAD
-=======
   postStore.postsData
->>>>>>> Pagination
 })
 
 </script>

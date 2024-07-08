@@ -27,11 +27,7 @@
       </div>
       <div class="post__readMore">
         <router-link 
-<<<<<<< HEAD
           :to="{name: decodeURIComponent(post.title)}" 
-=======
-          :to="{name: decodeURIComponent(post.title)}"  
->>>>>>> Pagination
           class="post__readMore-link"
         >
         Przeczytaj więcej
@@ -68,11 +64,4 @@ const paginatedPosts = computed(() => {
   return posts.value.slice(startIndex, endIndex);
 });
 
-<<<<<<< HEAD
-// watch(() => postStore.currentSelect, () => {
-//   posts = computed(() => postStore.filteredBySelect);
-// });
-
-=======
->>>>>>> Pagination
 </script>

@@ -28,10 +28,6 @@ onMounted(() => {
       
   postStore.$patch({
     postsData: postsArray,
-<<<<<<< HEAD
-    totalPages: Math.ceil(postStore.postsData.length / postStore.postsPerPage)
-=======
->>>>>>> Pagination
   });
 
 }) 
