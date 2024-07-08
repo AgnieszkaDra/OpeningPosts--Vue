@@ -27,7 +27,7 @@
       </div>
       <div class="post__readMore">
         <router-link 
-          :to="{name: decodeURIComponent(post.title)}" 
+          :to="`/${post.title}`" 
           class="post__readMore-link"
         >
         Przeczytaj więcej
